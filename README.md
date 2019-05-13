@@ -1,2 +1,2 @@
 # algorithm
-刷过的算法题，详解在我的博客www.wusanwan.xyz
+👉see more in my blog:www.wusanwan.xyz
