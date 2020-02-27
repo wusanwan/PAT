@@ -1,36 +1,24 @@
 //1037 Magic Coupon
 #pragma warning(disable:4996)
 #include<cstdio>
-#include<cstdlib>
 #include<algorithm>
 using namespace std;
 int main(){
-	int a, b,sum=0;
-	int A[100000], B[100000];
-	scanf("%d", &a);
-	for (int i = 0; i < a; i++)
-		scanf("%d", &A[i]);
-	scanf("%d", &b);
-	for (int i = 0; i < b; i++)
-		scanf("%d", &B[i]);
-	sort(A, A + a);
-	sort(B, B + b);
-	int alow = 0, blow = 0, ahigh = a - 1, bhigh = b - 1,m,n;
-	while (alow<=ahigh&&blow<=bhigh){//Ö»¿¼ÂÇÕýÕý¸º¸ºµÄÇé¿ö
-		m = A[alow] * B[blow];
-		n = A[ahigh] * B[bhigh];
-		if (m < 0 && n < 0)break;//È«¸ºÍË³ö£¬±£Ö¤mnÖÁÉÙÒ»¸öÕýµÄ
-		if (m>n){
-			sum += m;
-			alow++;
-			blow++;
-		}
-		else{
-			sum += n;
-			ahigh--;
-			bhigh--;
-		}
-	}	
+	int nc, np,sum=0;
+	int coupon[100000];
+	int product[100000];
+	scanf("%d", &nc);
+	for (int i = 0; i < nc;i++)
+		scanf("%d", &coupon[i]);
+	scanf("%d", &np);
+	for (int i = 0; i < np; i++)
+		scanf("%d", &product[i]);
+	sort(coupon, coupon + nc);
+	sort(product, product + np);
+	for (int i = 0; product[i] < 0 && coupon[i] < 0 && i<nc && i<np; i++)//è€ƒè™‘ä¸¤ä¸ªéƒ½è´Ÿçš„æƒ…å†µ
+		sum += product[i] * coupon[i];
+	for (int i = 0; product[np - 1 - i]>0 && coupon[nc - 1 - i]>0 && i<nc && i<np; i++)//è€ƒè™‘ä¸¤ä¸ªéƒ½æ­£çš„æƒ…å†µ
+		sum += product[np - 1 - i] * coupon[nc - 1 - i];
 	printf("%d", sum);
 	system("pause");
 	return 0;
