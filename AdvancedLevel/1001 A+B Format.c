@@ -1,4 +1,4 @@
-//1001 A + B Format £¨20 ·Ö£©
+//1001 A + B Format ï¼ˆ20 åˆ†ï¼‰
 #pragma warning(disable:4996)
 #include<cstdio>
 #include<string>
@@ -12,12 +12,12 @@ int main(){
 	sum = a + b;
 	sprintf(s, "%d", sum);
 	string str=s;
-	if (sum < 0){//´¦Àí·ûºÅ
+	if (sum < 0){//å¤„ç†ç¬¦å·
 		printf("-");
 		str.erase(0,1);
 	}
 	int u = str.length() % 3;
-	for (int i = 0; i < str.length(); i++){//µÚi¸öÊý×Ö
+	for (int i = 0; i < str.length(); i++){//ç¬¬iä¸ªæ•°å­—
 		putchar(str[i]);
 		if (i != str.length() - 1 &&(i-u+1)%3==0)printf(",");
 	}
